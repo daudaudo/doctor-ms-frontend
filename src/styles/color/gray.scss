@@ -1,0 +1,88 @@
+/* styles/globals.scss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Màu sắc Tailwind mặc định cho gray-light (sáng)
+$gray-light: (
+  0: theme('colors.gray.50'),   // gray-50
+  1: theme('colors.gray.100'),  // gray-100
+  2: theme('colors.gray.200'),  // gray-200
+  3: theme('colors.gray.300'),  // gray-300
+  4: theme('colors.gray.400'),  // gray-400
+  5: theme('colors.gray.500'),  // gray-500
+  6: theme('colors.gray.600'),  // gray-600
+  7: theme('colors.gray.700'),  // gray-700
+  8: theme('colors.gray.800'),  // gray-800
+  9: theme('colors.gray.900')   // gray-900
+);
+
+// Màu sắc Tailwind mặc định cho gray-dark (tối)
+$gray-dark: (
+  0: theme('colors.gray.900'),
+  1: theme('colors.gray.800'),
+  2: theme('colors.gray.700'),
+  3: theme('colors.gray.600'),
+  4: theme('colors.gray.500'),
+  5: theme('colors.gray.400'),
+  6: theme('colors.gray.300'),
+  7: theme('colors.gray.200'),
+  8: theme('colors.gray.100'),
+  9: theme('colors.gray.50')
+);
+
+// Tạo các class tùy chỉnh với SCSS loop
+@each $key, $value in $gray-light {
+  // Background color
+  .bg-gray-#{$key} {
+    @apply bg-[#{$value}] dark:bg-[#{map-get($gray-dark, $key)}];
+  }
+  // Text color
+  .text-gray-#{$key} {
+    @apply text-[#{$value}] dark:text-[#{map-get($gray-dark, $key)}];
+  }
+  // Border color
+  .border-gray-#{$key} {
+    @apply border-[#{$value}] dark:border-[#{map-get($gray-dark, $key)}];
+  }
+  // Ring color
+  .ring-gray-#{$key} {
+    @apply ring-[#{$value}] dark:ring-[#{map-get($gray-dark, $key)}];
+  }
+  // Placeholder color
+  .placeholder-gray-#{$key} {
+    @apply placeholder-[#{$value}] dark:placeholder-[#{map-get($gray-dark, $key)}];
+  }
+  // Divide color
+  .divide-gray-#{$key} {
+    @apply divide-[#{$value}] dark:divide-[#{map-get($gray-dark, $key)}];
+  }
+  // Shadow color
+  .shadow-gray-#{$key} {
+    @apply shadow-[#{$value}] dark:shadow-[#{map-get($gray-dark, $key)}];
+  }
+  // Outline color
+  .outline-gray-#{$key} {
+    @apply outline-[#{$value}] dark:outline-[#{map-get($gray-dark, $key)}];
+  }
+  // Accent color
+  .accent-gray-#{$key} {
+    @apply accent-[#{$value}] dark:accent-[#{map-get($gray-dark, $key)}];
+  }
+  // Caret color
+  .caret-gray-#{$key} {
+    @apply caret-[#{$value}] dark:caret-[#{map-get($gray-dark, $key)}];
+  }
+  // Decoration color
+  .decoration-gray-#{$key} {
+    @apply decoration-[#{$value}] dark:decoration-[#{map-get($gray-dark, $key)}];
+  }
+  // Fill color
+  .fill-gray-#{$key} {
+    @apply fill-[#{$value}] dark:fill-[#{map-get($gray-dark, $key)}];
+  }
+  // Stroke color
+  .stroke-gray-#{$key} {
+    @apply stroke-[#{$value}] dark:stroke-[#{map-get($gray-dark, $key)}];
+  }
+}

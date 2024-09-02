@@ -1,0 +1,86 @@
+/* styles/globals.scss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$primary-light: (
+  0: theme('colors.primary.50'),
+  1: theme('colors.primary.100'),
+  2: theme('colors.primary.200'),
+  3: theme('colors.primary.300'),
+  4: theme('colors.primary.400'),
+  5: theme('colors.primary.500'),
+  6: theme('colors.primary.600'),
+  7: theme('colors.primary.700'),
+  8: theme('colors.primary.800'),
+  9: theme('colors.primary.900')
+);
+
+$primary-dark: (
+  0: theme('colors.primary.900'),
+  1: theme('colors.primary.800'),
+  2: theme('colors.primary.700'),
+  3: theme('colors.primary.600'),
+  4: theme('colors.primary.500'),
+  5: theme('colors.primary.400'),
+  6: theme('colors.primary.300'),
+  7: theme('colors.primary.200'),
+  8: theme('colors.primary.100'),
+  9: theme('colors.primary.50')
+);
+
+// Tạo các class tùy chỉnh cho màu primary với SCSS loop
+@each $key, $value in $primary-light {
+   // Background color
+   .bg-primary-#{$key} {
+    @apply bg-[#{$value}] dark:bg-[#{map-get($primary-dark, $key)}];
+  }
+  // Text color
+  .text-primary-#{$key} {
+    @apply text-[#{$value}] dark:text-[#{map-get($primary-dark, $key)}];
+  }
+  // Border color
+  .border-primary-#{$key} {
+    @apply border-[#{$value}] dark:border-[#{map-get($primary-dark, $key)}];
+  }
+  // Ring color
+  .ring-primary-#{$key} {
+    @apply ring-[#{$value}] dark:ring-[#{map-get($primary-dark, $key)}];
+  }
+  // Placeholder color
+  .placeholder-primary-#{$key} {
+    @apply placeholder-[#{$value}] dark:placeholder-[#{map-get($primary-dark, $key)}];
+  }
+  // Divide color
+  .divide-primary-#{$key} {
+    @apply divide-[#{$value}] dark:divide-[#{map-get($primary-dark, $key)}];
+  }
+  // Shadow color
+  .shadow-primary-#{$key} {
+    @apply shadow-[#{$value}] dark:shadow-[#{map-get($primary-dark, $key)}];
+  }
+  // Outline color
+  .outline-primary-#{$key} {
+    @apply outline-[#{$value}] dark:outline-[#{map-get($primary-dark, $key)}];
+  }
+  // Accent color
+  .accent-primary-#{$key} {
+    @apply accent-[#{$value}] dark:accent-[#{map-get($primary-dark, $key)}];
+  }
+  // Caret color
+  .caret-primary-#{$key} {
+    @apply caret-[#{$value}] dark:caret-[#{map-get($primary-dark, $key)}];
+  }
+  // Decoration color
+  .decoration-primary-#{$key} {
+    @apply decoration-[#{$value}] dark:decoration-[#{map-get($primary-dark, $key)}];
+  }
+  // Fill color
+  .fill-primary-#{$key} {
+    @apply fill-[#{$value}] dark:fill-[#{map-get($primary-dark, $key)}];
+  }
+  // Stroke color
+  .stroke-primary-#{$key} {
+    @apply stroke-[#{$value}] dark:stroke-[#{map-get($primary-dark, $key)}];
+  }
+}

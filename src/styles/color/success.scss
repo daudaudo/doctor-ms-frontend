@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// Màu sắc Tailwind mặc định cho success-light (sáng)
+$success-light: (
+  0: theme('colors.green.50'),
+  1: theme('colors.green.100'),
+  2: theme('colors.green.200'),
+  3: theme('colors.green.300'),
+  4: theme('colors.green.400'),
+  5: theme('colors.green.500'),
+  6: theme('colors.green.600'),
+  7: theme('colors.green.700'),
+  8: theme('colors.green.800'),
+  9: theme('colors.green.900')
+);
+
+// Màu sắc Tailwind mặc định cho success-dark (tối)
+$success-dark: (
+  0: theme('colors.green.900'),
+  1: theme('colors.green.800'),
+  2: theme('colors.green.700'),
+  3: theme('colors.green.600'),
+  4: theme('colors.green.500'),
+  5: theme('colors.green.400'),
+  6: theme('colors.green.300'),
+  7: theme('colors.green.200'),
+  8: theme('colors.green.100'),
+  9: theme('colors.green.50')
+);
+
+// Tạo các class tùy chỉnh cho màu success với SCSS loop
+@each $key, $value in $success-light {
+  .bg-success-#{$key} {
+    @apply bg-[#{$value}] dark:bg-[#{map-get($success-dark, $key)}];
+  }
+  .text-success-#{$key} {
+    @apply text-[#{$value}] dark:text-[#{map-get($success-dark, $key)}];
+  }
+  .border-success-#{$key} {
+    @apply border-[#{$value}] dark:border-[#{map-get($success-dark, $key)}];
+  }
+  .ring-success-#{$key} {
+    @apply ring-[#{$value}] dark:ring-[#{map-get($success-dark, $key)}];
+  }
+  .placeholder-success-#{$key} {
+    @apply placeholder-[#{$value}] dark:placeholder-[#{map-get($success-dark, $key)}];
+  }
+  .divide-success-#{$key} {
+    @apply divide-[#{$value}] dark:divide-[#{map-get($success-dark, $key)}];
+  }
+  .shadow-success-#{$key} {
+    @apply shadow-[#{$value}] dark:shadow-[#{map-get($success-dark, $key)}];
+  }
+  .outline-success-#{$key} {
+    @apply outline-[#{$value}] dark:outline-[#{map-get($success-dark, $key)}];
+  }
+  .accent-success-#{$key} {
+    @apply accent-[#{$value}] dark:accent-[#{map-get($success-dark, $key)}];
+  }
+  .caret-success-#{$key} {
+    @apply caret-[#{$value}] dark:caret-[#{map-get($success-dark, $key)}];
+  }
+  .decoration-success-#{$key} {
+    @apply decoration-[#{$value}] dark:decoration-[#{map-get($success-dark, $key)}];
+  }
+  .fill-success-#{$key} {
+    @apply fill-[#{$value}] dark:fill-[#{map-get($success-dark, $key)}];
+  }
+  .stroke-success-#{$key} {
+    @apply stroke-[#{$value}] dark:stroke-[#{map-get($success-dark, $key)}];
+  }
+}

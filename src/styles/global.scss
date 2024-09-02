@@ -1,0 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components'; 
+@import 'tailwindcss/utilities';
+
+@import './color/gray.scss';
+@import './color/primary.scss';
+@import './color/warning.scss';
+@import './color/error.scss';
+@import './color/success.scss';
+@import './color/info.scss';
+@import './color/danger.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+}

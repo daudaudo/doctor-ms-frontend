@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Màu sắc Tailwind mặc định cho warning-light (sáng)
+$warning-light: (
+  0: theme('colors.yellow.50'),
+  1: theme('colors.yellow.100'),
+  2: theme('colors.yellow.200'),
+  3: theme('colors.yellow.300'),
+  4: theme('colors.yellow.400'),
+  5: theme('colors.yellow.500'),
+  6: theme('colors.yellow.600'),
+  7: theme('colors.yellow.700'),
+  8: theme('colors.yellow.800'),
+  9: theme('colors.yellow.900')
+);
+
+// Màu sắc Tailwind mặc định cho warning-dark (tối)
+$warning-dark: (
+  0: theme('colors.yellow.900'),
+  1: theme('colors.yellow.800'),
+  2: theme('colors.yellow.700'),
+  3: theme('colors.yellow.600'),
+  4: theme('colors.yellow.500'),
+  5: theme('colors.yellow.400'),
+  6: theme('colors.yellow.300'),
+  7: theme('colors.yellow.200'),
+  8: theme('colors.yellow.100'),
+  9: theme('colors.yellow.50')
+);
+
+// Tạo các class tùy chỉnh cho màu warning với SCSS loop
+@each $key, $value in $warning-light {
+  .bg-warning-#{$key} {
+    @apply bg-[#{$value}] dark:bg-[#{map-get($warning-dark, $key)}];
+  }
+  .text-warning-#{$key} {
+    @apply text-[#{$value}] dark:text-[#{map-get($warning-dark, $key)}];
+  }
+  .border-warning-#{$key} {
+    @apply border-[#{$value}] dark:border-[#{map-get($warning-dark, $key)}];
+  }
+  .ring-warning-#{$key} {
+    @apply ring-[#{$value}] dark:ring-[#{map-get($warning-dark, $key)}];
+  }
+  .placeholder-warning-#{$key} {
+    @apply placeholder-[#{$value}] dark:placeholder-[#{map-get($warning-dark, $key)}];
+  }
+  .divide-warning-#{$key} {
+    @apply divide-[#{$value}] dark:divide-[#{map-get($warning-dark, $key)}];
+  }
+  .shadow-warning-#{$key} {
+    @apply shadow-[#{$value}] dark:shadow-[#{map-get($warning-dark, $key)}];
+  }
+  .outline-warning-#{$key} {
+    @apply outline-[#{$value}] dark:outline-[#{map-get($warning-dark, $key)}];
+  }
+  .accent-warning-#{$key} {
+    @apply accent-[#{$value}] dark:accent-[#{map-get($warning-dark, $key)}];
+  }
+  .caret-warning-#{$key} {
+    @apply caret-[#{$value}] dark:caret-[#{map-get($warning-dark, $key)}];
+  }
+  .decoration-warning-#{$key} {
+    @apply decoration-[#{$value}] dark:decoration-[#{map-get($warning-dark, $key)}];
+  }
+  .fill-warning-#{$key} {
+    @apply fill-[#{$value}] dark:fill-[#{map-get($warning-dark, $key)}];
+  }
+  .stroke-warning-#{$key} {
+    @apply stroke-[#{$value}] dark:stroke-[#{map-get($warning-dark, $key)}];
+  }
+}
